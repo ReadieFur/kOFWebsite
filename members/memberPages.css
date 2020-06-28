@@ -71,7 +71,7 @@ li { margin-left: 15px; }
     top: 50%;
     left: 50%;
     position: absolute;
-    width: 426.67px;
+    width: 426px;
     height: 240px;
     transform: translate(-50%, -50%);
 }
