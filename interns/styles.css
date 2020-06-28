@@ -1,0 +1,12 @@
+.internsList
+{
+    height: fit-content;
+    text-align: justify;
+}
+
+.internsList > div
+{
+    padding-top: 50px;
+    display: inline-block;
+    text-align: center;
+}
