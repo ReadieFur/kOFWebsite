@@ -6,13 +6,6 @@ section
 
 section > div { position: relative; }
 
-.center
-{
-    width: max-content;
-    top: 50%;
-    margin-top: -50%;
-}
-
 .memberInfo { width: 65%; }
 
 li { margin-left: 15px; }

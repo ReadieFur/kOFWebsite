@@ -1,0 +1,96 @@
+ul > li:last-child { font-weight: bold; }
+
+.tosContainer
+{
+    position: fixed;
+    display: none;
+    /*background-image: url("/resources/Banner.png");*/
+    background-position: 10%;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+}
+
+.tosContainer > img
+{
+    opacity: 0.75;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.tosContent
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 850px;
+    height: 500px;
+    background-color: white;
+    color: black;
+}
+
+.tosPanda
+{
+    width: 30%;
+    height: 100%;
+    background-color: rgb(12, 12, 12);
+    float: left;
+}
+
+.tosPanda > img { width: 90%; }
+
+.tosText > h1
+{
+    text-align: center;
+    line-height: 50px;
+    position: relative;
+    top: -10px;
+}
+
+.tosText > *:not(h1)
+{
+    top: -30px;
+    margin-left: 32%;
+    margin-right: 2%;
+    margin-bottom: 2%;
+    font-weight: bold;
+    position: relative;
+}
+
+.tosText > div
+{
+    font-size: 14px;
+    font-family: monospace; 
+    height: 250px;
+    overflow-y: scroll;
+}
+
+.tosText > button
+{
+    position: relative;
+    top: -35px;
+    color: black;
+    border-color: black;
+}
+
+.navLinksCustom
+{
+    position: relative;
+    top: 10px;
+}
+
+#b1 { float: left; }
+
+.navLinksCustom
+{
+    position: relative;
+    padding-top: 5px;
+    padding-left: 90px;
+    cursor: pointer;
+}
