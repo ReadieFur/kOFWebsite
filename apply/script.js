@@ -1,4 +1,9 @@
-function showTos() { document.getElementById("tosContainer").style.display = "block"; }
+function showTos()
+{
+    document.getElementById("tosContainer").style.display = "block";
+    document.getElementById("tosText").style.display = "block";
+    document.getElementById("applicationFormContainer").style.display = "none";
+}
 
 function hideTos() { document.getElementById("tosContainer").style.display = "none"; }
 
@@ -14,4 +19,10 @@ function disableNavLinkCustom(e)
         b1.onclick = showTos;
         setTimeout(() => { showTos(); }, 1000);
     }
+}
+
+function showApplicationForm()
+{
+    document.getElementById("tosText").style.display = "none";
+    document.getElementById("applicationFormContainer").style.display = "block";
 }
