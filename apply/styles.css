@@ -104,10 +104,10 @@ ul > li:last-child { font-weight: bold; }
 
 form { margin-top: -40px; }
 
-input
+input, select
 {
     border: none;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid black !important;
     width: 240px;
     height: 40px;
     margin-left: 25px;
@@ -117,10 +117,27 @@ input
 
 input::placeholder { color: black; }
 
-#previousCompetitions, #whykOF { height: 100px; }
+.largeFormBox { height: 100px; }
 
-#submitApplication
+form > button
 {
+    position: relative;
+    color: black;
+    border-color: black;
+    font-weight: bold;
     transform: translate(-50%, 25%);
     left: 50%;
+}
+
+select
+{
+    width: 250px;
+    border: 1px solid white;
+}
+
+option:first-child { display: none; }
+
+#submissionStatus
+{
+    display: none;
 }

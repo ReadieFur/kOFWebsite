@@ -40,7 +40,7 @@
             </div>
         </div>
 
-        <!--#region TOS-->
+        <!--#region popup application container-->
         <span id="tosContainer" class="tosContainer fadeIn">
             <img src="/resources/Banner.png" onclick="hideTos()">
             <div class="tosContent">
@@ -88,21 +88,37 @@
                 </div>
                 <div id="applicationFormContainer" class="fadein">
                     <h1>APPLY FOR KOF</h1>
-                    <form>
-                        <input type="text" id="forename" placeholder="Forename">
-                        <input type="text" id="nickname" placeholder="Nickname">
-                        <input type="date" id="birthdate" placeholder="Birthdate">
-                        <input type="text" id="competedGames" placeholder="What game(s) fo you compete for?">
-                        <input type="text" id="country" placeholder="Country">
-                        <input type="text" id="email" placeholder="Email">
-                        <input type="text" id="previousCompetitions" placeholder="Have you ever competed in eSports Tournaments, or in any other competitive gaming events, and if Yes, where and what games?">
-                        <input type="text" id="whykOF" placeholder="Why should you be in kOF?">
-                        <input type="number" id="daysActive" placeholder="Days active per-week">
-                        <input type="number" id="streamUpload" placeholder="Can you stream and upload?">
+                    <form action="submitApplication.php" method="POST">
+                        <input type="text" name="forename" placeholder="Forename">
+                        <input type="text" name="nickname" placeholder="Nickname">
+                        <input type="date" name="birthdate" placeholder="Birthdate">
+                        <input type="text" name="competedGames" placeholder="What game(s) fo you compete for?">
+                        <input type="text" name="country" placeholder="Country">
+                        <input type="text" name="email" placeholder="Email">
+                        <input type="text" name="previousCompetitions" class="largeFormBox" placeholder="Have you ever competed in eSports Tournaments, or in any other competitive gaming events, and if Yes, where and what games?">
+                        <input type="text" name="whykOF" class="largeFormBox" placeholder="Why should you be in kOF?">
+                        <select type="number" name="daysActive">
+                            <option value="placeholder">Days active per-week</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                        </select>
+                        <select type="number" name="streamUpload">
+                            <option value="placeholder">Can you stream and upload?</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                        <button type="submit" name="submit">Submit</button>
                     </form>
-                    <button id="submitApplication">Submit</button>
                 </div>
-            </div>            
+                <div id="submissionStatus">
+                    <h1 id="submissionComplete">APPLICATION SUBMITTED!</h1>
+                </div>
+            </div>
         </span>
         <!--#endregion-->
     </section>
