@@ -34,7 +34,8 @@
           `previousCompetitions` VARCHAR(1024) NOT NULL,
           `whykOF` VARCHAR(1024) NOT NULL,
           `daysActive` INT(11) NOT NULL,
-          `streamUpload` TINYINT(1) NOT NULL
+          `streamUpload` TINYINT(1) NOT NULL,
+          `notes` VARCHAR(1024)
       );
       */
 
