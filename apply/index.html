@@ -89,15 +89,15 @@
                 <div id="applicationFormContainer" class="fadein">
                     <h1>APPLY FOR KOF</h1>
                     <form action="submitApplication.php" method="POST">
-                        <input type="text" name="forename" placeholder="Forename">
-                        <input type="text" name="nickname" placeholder="Nickname">
-                        <input type="date" name="birthdate" placeholder="Birthdate">
-                        <input type="text" name="competedGames" placeholder="What game(s) fo you compete for?">
-                        <input type="text" name="country" placeholder="Country">
-                        <input type="text" name="email" placeholder="Email">
-                        <input type="text" name="previousCompetitions" class="largeFormBox" placeholder="Have you ever competed in eSports Tournaments, or in any other competitive gaming events, and if Yes, where and what games?">
-                        <input type="text" name="whykOF" class="largeFormBox" placeholder="Why should you be in kOF?">
-                        <select type="number" name="daysActive">
+                        <input type="text" required name="forename" placeholder="Forename">
+                        <input type="text" required name="nickname" placeholder="Nickname">
+                        <input type="date" required name="birthdate" placeholder="Birthdate">
+                        <input type="text" required name="competedGames" placeholder="What game(s) fo you compete for?">
+                        <input type="text" required name="country" placeholder="Country">
+                        <input type="text" required name="email" placeholder="Email">
+                        <input type="text" required name="previousCompetitions" class="largeFormBox" placeholder="Have you ever competed in eSports Tournaments, or in any other competitive gaming events, and if Yes, where and what games?">
+                        <input type="text" required name="whykOF" class="largeFormBox" placeholder="Why should you be in kOF?">
+                        <select type="number" required name="daysActive">
                             <option value="placeholder">Days active per-week</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -107,7 +107,7 @@
                             <option value="6">6</option>
                             <option value="7">7</option>
                         </select>
-                        <select type="number" name="streamUpload">
+                        <select type="number" required name="streamUpload">
                             <option value="placeholder">Can you stream and upload?</option>
                             <option value="yes">Yes</option>
                             <option value="no">No</option>

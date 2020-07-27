@@ -1,3 +1,5 @@
+var b1 = document.getElementById("b1");
+
 function showTos()
 {
     document.getElementById("tosContainer").style.display = "block";
@@ -18,8 +20,7 @@ function disableNavLinkCustom(e)
     e.style.display = "none";
     socialsVisited += 1;
     if (socialsVisited >= 5)
-    {
-        var b1 = document.getElementById("b1");
+    {        
         b1.disabled = false;
         b1.onclick = showTos;
         setTimeout(() => { showTos(); }, 1000);
@@ -34,6 +35,8 @@ function showApplicationForm()
 
 window.addEventListener('DOMContentLoaded', (event) =>
 {
+    document.getElementById("b1").disabled = false; //Temp while fixing function disableNavLinkCustom();
+
     const urlParams = new URLSearchParams(location.search);
     if (urlParams.has("submission"))
     {

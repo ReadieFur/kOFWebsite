@@ -137,7 +137,4 @@ select
 
 option:first-child { display: none; }
 
-#submissionStatus
-{
-    display: none;
-}
+#submissionStatus { display: none; }
