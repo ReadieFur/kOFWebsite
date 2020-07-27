@@ -1,1 +1,1 @@
-# This page is not in a finished/public sate yet.
+# This page is a near-finished state.
