@@ -20,21 +20,23 @@
         $streamUpload = mysqli_real_escape_string($conn, $_POST['streamUpload']);
 
         /*
+        DROP TABLE IF EXISTS `applications`;
         CREATE TABLE `applications`
         (
-          `id` int(11) NOT NULL,
-         `forename` varchar(128) NOT NULL,
-          `nickname` varchar(128) NOT NULL,
-          `birthdate` varchar(128) NOT NULL,
-          `competedGames` varchar(512) NOT NULL,
-          `country` varchar(128) NOT NULL,
-          `email` varchar(512) NOT NULL,
-          `previousCompetitions` varchar(1024) NOT NULL,
-          `whykOF` varchar(1024) NOT NULL,
-          `daysActive` int(11) NOT NULL,
-          `streamUpload` tinyint(1) NOT NULL
-        )
-        */
+          `id` INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+          `date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+          `forename` VARCHAR(128) NOT NULL,
+          `nickname` VARCHAR(128) NOT NULL,
+          `birthdate` VARCHAR(128) NOT NULL,
+          `competedGames` VARCHAR(512) NOT NULL,
+          `country` VARCHAR(128) NOT NULL,
+          `email` VARCHAR(512) NOT NULL,
+          `previousCompetitions` VARCHAR(1024) NOT NULL,
+          `whykOF` VARCHAR(1024) NOT NULL,
+          `daysActive` INT(11) NOT NULL,
+          `streamUpload` TINYINT(1) NOT NULL
+      );
+      */
 
         $sql = "INSERT INTO
         applications
