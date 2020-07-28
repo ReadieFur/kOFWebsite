@@ -19,26 +19,6 @@
         $daysActive = mysqli_real_escape_string($conn, $_POST['daysActive']);
         $streamUpload = mysqli_real_escape_string($conn, $_POST['streamUpload']);
 
-        /*
-        DROP TABLE IF EXISTS `applications`;
-        CREATE TABLE `applications`
-        (
-          `id` INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-          `date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-          `forename` VARCHAR(128) NOT NULL,
-          `nickname` VARCHAR(128) NOT NULL,
-          `birthdate` VARCHAR(128) NOT NULL,
-          `competedGames` VARCHAR(512) NOT NULL,
-          `country` VARCHAR(128) NOT NULL,
-          `email` VARCHAR(512) NOT NULL,
-          `previousCompetitions` VARCHAR(1024) NOT NULL,
-          `whykOF` VARCHAR(1024) NOT NULL,
-          `daysActive` INT(11) NOT NULL,
-          `streamUpload` TINYINT(1) NOT NULL,
-          `notes` VARCHAR(1024)
-        );
-        */
-
         $sql = "INSERT INTO
         applications
           (
