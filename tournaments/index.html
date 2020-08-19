@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--#region External resources-->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;600&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!--#endregion-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kOF | Apply</title>
+    <link rel="icon" href="/resources/logos/Panda.svg" type="image/svg">
+    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+    <script src="/main.js"></script>
+</head>
+<header id="header"><!--Injected by main.js using header.html--></header>
+
+<body>
+    <section>
+        <h1>Macedonian Leauge Of Legends Tournament</h1>
+        <h2>September 2020</h2>
+        <form action="submitApplication.php" method="POST">
+            <input type="text" required name="teamName" placeholder="Име на тим">
+            <input type="text" required name="instagram" placeholder="Инстаграм од тим лидерот">
+            <input type="text" class="largeFormBox" required name="playerNames" placeholder="Имиња на играчи">
+            <br>
+            <button type="submit" name="submit">Submit</button>
+        </form>
+        <h1>Submission STATUS</h1>
+    </section>
+</body>
+
+<footer id="footer"><!--Injected by main.js using footer.html--></footer>
+</html>

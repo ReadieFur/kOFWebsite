@@ -2,7 +2,7 @@
     if(isset($_POST["forename"])) //Checks if the form is valid (not empty)
     {
         //Database details
-        include_once 'kOFDBDetails.php';
+        include_once 'DBDetails.php';
 
         //Connect to the database
         $conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
@@ -53,10 +53,7 @@
         //Redirect back to website
         header("Location: ../apply/?submission=sucessful");
     }
-    else
-    {
-        header("Location: ../apply/?submission=unsucessful");
-    }
+    else { header("Location: ../apply/?submission=unsucessful"); }
 ?>
 <script type="text/javascript">
   //WIP WS SSL

@@ -1,0 +1,29 @@
+input, select
+{
+    border: none;
+    border-bottom: 1px solid white;
+    color: white;
+    background-color: transparent;
+    width: 240px;
+    height: 40px;
+    margin-left: 25px;
+    margin-top: 15px;
+    padding-left: 12px;
+}
+
+input::placeholder { color: white; }
+
+form > button
+{
+    margin-top: 20px;
+    margin-left: 25px;
+}
+
+h1:last-of-type
+{
+    margin-left: 50%;
+    transform: translate(-50%);
+    color: green;
+    display: none;
+    width: max-content;
+}
