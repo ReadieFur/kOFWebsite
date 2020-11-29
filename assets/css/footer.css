@@ -1,0 +1,36 @@
+body::after
+{
+    display: block;
+    content: "";
+    height: 60px;
+}
+
+footer
+{
+    bottom: 0;
+    position: absolute;
+    left: 5%;
+    right: 5%;
+    height: 60px;
+}
+
+footer > div:first-of-type
+{
+    position: relative;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+footer > div:first-of-type > * { font-size: small; }
+
+.partner
+{
+    border-radius: 4px 0px 0px 4px;
+    padding: 8px;
+    padding-left: 10px;
+    background-color: #2f3541;
+    position: fixed;
+    bottom: 50px;
+    right: 0;
+}
+.partner:hover { background-color: #3d4555; }

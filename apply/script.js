@@ -1,60 +1,65 @@
-var b1 = document.getElementById("b1");
+let applyContainer;
 
-function showTos()
+window.addEventListener("load", () =>
 {
-    document.getElementById("tosContainer").style.display = "block";
-    document.getElementById("tosText").style.display = "block";
-    document.getElementById("applicationFormContainer").style.display = "none";
-    document.getElementById("submissionStatus").style.display = "none";
-}
-
-function hideTos()
-{
-    document.getElementsByClassName("tosContainer")[0].className = "tosContainer fadeIn";
-    document.getElementById("tosContainer").style.display = "none";
-}
-
-var socialsVisited = 0;
-function disableNavLinkCustom(e)
-{
-    e.style.display = "none";
-    socialsVisited += 1;
-    if (socialsVisited >= 5)
-    {        
-        b1.disabled = false;
-        b1.onclick = showTos;
-        setTimeout(() => { showTos(); }, 1000);
-    }
-}
-
-function showApplicationForm()
-{
-    document.getElementById("tosText").style.display = "none";
-    document.getElementById("applicationFormContainer").style.display = "block";
-}
-
-window.addEventListener('DOMContentLoaded', (event) =>
-{
-    document.getElementById("b1").disabled = false; //Temp while fixing function disableNavLinkCustom();
-
-    const urlParams = new URLSearchParams(location.search);
-    if (urlParams.has("submission"))
-    {
-        document.getElementsByClassName("tosContainer")[0].className = "tosContainer";
-
-        document.getElementById("tosContainer").style.display = "block";
-
-        document.getElementById("tosText").style.display = "none";
-        document.getElementById("applicationFormContainer").style.display = "none";
-        document.getElementById("submissionStatus").style.display = "block";
-
-        if (urlParams.get("submission") == "sucessful")
-        {
-            document.getElementById("submissionComplete").innerHTML = "APPLICATION SUBMITTED!";
-        }
-        else //Implement submission cooldowns as well as failed here (with BASIC errors, full errors should log to the console)
-        {
-            document.getElementById("submissionComplete").innerHTML = "SUBMISSION FAILED!";
-        }
-    }
+    applyContainer = document.querySelector("#applyContainer");
+    document.querySelector("#showApplication").onclick = () => { applicationSlide(1); applyFormVisibility(1); };
+    document.querySelector("#applyContainerClickOut").onclick = () => { applyFormVisibility(0); };
+    document.querySelector("#page1Button").onclick = () => { applicationSlide(2); };
+    document.querySelector("#page3Button").onclick = () => { applyFormVisibility(0); };
+    let applicationForm = document.querySelector("#applyForm");
+    applicationForm.onsubmit = submitApplication;
+    document.querySelector("#submitApplication").onclick = () => { applicationForm.querySelector("input[type=submit]").click(); };
 });
+
+function applicationSlide(page) { document.querySelector("#applyPages").className = `page${page}`; }
+
+function submitApplication(event)
+{
+    event.preventDefault();
+
+    $.ajax(
+    {
+        type: "POST",
+        url: "submitApplication.php",
+        data:
+        {
+            forename: event.srcElement[0].value,
+            nickname: event.srcElement[1].value,
+            birthdate: event.srcElement[2].value,
+            competedGames: event.srcElement[3].value,
+            country: event.srcElement[4].value,
+            email: event.srcElement[5].value,
+            previousCompetitions: event.srcElement[6].value,
+            whykOF: event.srcElement[7].value,
+            daysActive: event.srcElement[8].value,
+            streamUpload: event.srcElement[9].value
+        },
+        success: success,
+        dataType: "TEXT"
+    });
+
+    function success(data)
+    {
+        let page3Status = document.querySelector("#page3Status");
+        if (data == "sucessful") { page3Status.innerText = "Success"; page3Status.style.color = "green"; }
+        else { page3Status.innerText = "Failed"; page3Status.style.color = "red"; }
+        applicationSlide(3);
+    }
+}
+
+function applyFormVisibility(e)
+{
+    if (e == 1)
+    {
+        applyContainer.classList.remove("fadeOut");
+        applyContainer.classList.add("fadeIn");
+        applyContainer.style.display = "block";
+    }
+    else
+    {
+        applyContainer.classList.remove("fadeIn");
+        applyContainer.classList.add("fadeOut");
+        setTimeout(() => { applyContainer.style.display = "none"; }, 495);
+    }
+}

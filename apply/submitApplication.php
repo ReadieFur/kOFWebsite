@@ -50,44 +50,6 @@
         //Submit query to the database
         mysqli_query($conn, $sql);
 
-        //Redirect back to website
-        header("Location: ../apply/?submission=sucessful");
+        echo "sucessful";
     }
-    else { header("Location: ../apply/?submission=unsucessful"); }
-?>
-<script type="text/javascript">
-  //WIP WS SSL
-  /*window.addEventListener("DOMContentLoaded", function()
-  {
-    var socket = new WebSocket("wss://51.210.44.49:1593");
-
-    socket.onopen = function(e)
-    {
-      socket.send(JSON.stringify(
-        {
-          forename: "<?php echo $forename ?>",
-          nickname: "<?php echo $nickname ?>",
-          birthdate: "<?php echo $birthdate ?>",
-          competedGames: "<?php echo $competedGames ?>",
-          country: "<?php echo $country ?>",
-          email: "<?php echo $email ?>",
-          previousCompetitions: "<?php echo $previousCompetitions ?>",
-          whykOF: "<?php echo $whykOF ?>",
-          daysActive: "<?php echo $daysActive ?>",
-          streamUpload: "<?php echo $streamUpload ?>"
-        }));
-    };
-  
-    socket.onmessage = function(event)
-    {
-      console.log(event.data);
-      //if (event.data = "valid") { window.location.replace("../apply/?submission=sucessful"); }
-      //else if (event.data = "invalid") { window.location.replace("../apply/?submission=unsucessful"); }
-    };
-  
-    socket.onerror = function(error)
-    {
-      console.log(`[WSS ERROR] ${error.message}`);
-    };
-  });*/
-</script>
+    else { echo "unsucessful"; }

@@ -1,105 +1,37 @@
-.trailer
+#rosterContainer { width: 100%; }
+
+#rosterContainer * { text-align: center; }
+
+#rosterContainer tr > td:first-of-type,
+#rosterContainer tr > td:last-of-type
 {
+    width: 20vw;
     position: relative;
-    object-fit: cover;
-    width: 100vw;
+    user-select: none;
 }
 
-.center
-{
-    left: 50%;
-    transform: translate(-50%);
-}
-
-/*#region Roster*/
-.rosterContainer
-{
-    padding-top: 20px;
-    text-align: center;
-}
-
-.slideshow-container { position: relative; }
-
-.mySlides { display: none; width: 20%; transform: translate(200%); }
-
-.prev, .next
+#rosterContainer tr > td:first-of-type > h3,
+#rosterContainer tr > td:last-of-type > h3
 {
     cursor: pointer;
-    position: absolute;
-    top: 50%;
-    transform: translate(0%, -50%);
-    padding: 15px 20px 15px 20px;
-    font-size: xx-large;
+    width: 38px;
+    height: 38px;
+    margin: 0;
 }
 
-.prev { left: 0; }
-
-.next { right: 0; }
-
-.prev:hover, .next:hover
+#rosterContainer tr > td:not(:first-of-type):not(:last-of-type)
 {
-    background-color: rgba(0,0,0,0.8);
+    display: none;
+    width: 80vw;
+    height: 370px;
+    position: relative;
 }
 
-.prev::selection, .next::selection { color: none; }
-
-.dot
+#rosterContainer tr > td:not(:first-of-type):not(:last-of-type) > a
 {
-    cursor: pointer;
-    height: 15px;
-    width: 15px;
-    margin: 0 2px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-    transition: background-color 0.6s ease;
+    display: block;
+    width: max-content;
+    padding: 20px 80px;
 }
 
-.active { background-color: #717171; }
-
-.dot:hover
-{
-    cursor: pointer;
-    background-color: #a1a1a1;
-}
-
-.rtl
-{
-    animation-name: rtl;
-    animation-duration: 1.5s;
-}
-
-@keyframes rtl
-{
-    from
-    {
-        opacity: 0;
-        transform: translate(350%);
-    }
-    to
-    {
-        opacity: 1;
-        transform: translate(200%);
-    }
-}
-
-.ltr
-{
-    animation-name: ltr;
-    animation-duration: 1.5s;
-}
-
-@keyframes ltr
-{
-    from
-    {
-        opacity: 0;
-        transform: translate(50%);
-    }
-    to
-    {
-        opacity: 1;
-        transform: translate(200%);
-    }
-}
-/*#endregion*/
+#rosterContainer tr > td.visible { display: table-cell !important; }

@@ -2,3 +2,5 @@
 backups/
 DBDetails.php
 **/desktop.ini
+old/
+.htaccess

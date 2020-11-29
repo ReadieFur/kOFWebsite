@@ -1,0 +1,123 @@
+header
+{
+    background-color: rgba(0, 0, 0, 0.9);
+    width: 100vw;
+}
+
+header > section { position: relative; z-index: 9999; }
+
+.titleContainer
+{
+    position: relative;
+    height: 100px;
+}
+
+.titleIcon
+{
+    position: relative;
+    float: left;
+    transform: translate(0, 15%);
+}
+
+.title
+{
+    position: relative;
+    top: 50px;
+    left: 20px;
+    line-height: 10px;
+    margin: 0;
+    padding: 0;
+    transform: translate(0%, -50%);
+}
+
+.navigationContainer
+{
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(0%, -50%);
+    font-weight: bolder;
+    font-size: 1.25rem;
+}
+
+.navigationContainer > *:hover { color: #dd163b; }
+
+.navigationContainer > *
+{
+    float: left;
+    margin-left: 50px;
+}
+
+/**/
+
+.naviDropdown > a:hover { cursor: default; }
+
+.naviDropdown:hover > .dropdownContent { display: block; }
+
+.dropdownContent
+{
+    display: none;
+    position: absolute;
+    z-index: 1;
+    width: max-content;
+}
+
+.dropdownContent > :first-child { height: 50px; }
+
+.dropdownContent > :last-child > a:hover { color: #dd163b; }
+
+.dropdownContent > :last-child > a,
+.dropdownContent > :last-child > div > a
+{
+    float: none;
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdownContent > :last-child
+{
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+/**/
+
+.naviDropdown2 { position: relative; }
+
+.naviDropdown2 > a:hover { cursor: default; }
+
+.naviDropdown2:hover > a { color: #dd163b !important; }
+
+.naviDropdown2:hover > .dropdownContent2 { display: block; }
+
+.dropdownContent2
+{
+    left: 100%;
+    top: 0;
+    padding-left: 10px;
+    display: none;
+    position: absolute;
+    z-index: 1;
+    width: max-content;
+}
+
+.dropdownContent2 > :last-child > a:hover { color: #dd163b; }
+
+.dropdownContent2 > :last-child > a
+{
+    float: none;
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdownContent2 > :last-child
+{
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.9);
+}

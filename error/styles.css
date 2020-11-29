@@ -1,0 +1,27 @@
+img
+{
+    z-index: -1;
+    filter: blur(4px);
+    object-fit: cover;
+    width: 101%;
+    height: 101%;
+    position: fixed;
+    top: -.5%;
+    left: -.5%;
+    opacity: .8;
+}
+
+div:first-of-type
+{
+    top: 50%;
+    left: 50%;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+button
+{
+    font-size: x-large !important;
+    border: 2.5px solid #3d4555 !important;
+}

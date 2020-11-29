@@ -1,0 +1,38 @@
+.memberDescriptor
+{
+    display: inline-table;
+}
+
+.memberDescriptor > p
+{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.headerSpacer
+{
+    height: 100px;
+}
+
+#description
+{
+    font-size: large;
+}
+
+#socials > div
+{
+    border-radius: 4px;
+    width: 100%;
+    min-height: 200px;
+    height: max-content;
+    padding: 5px 20px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.Twitch { background: linear-gradient(135deg, rgba(111, 0, 185, 1) 30%, rgba(25, 46, 212, 1) 100%); }
+.YouTube { background: linear-gradient(135deg, rgba(185,0,0,1) 30%, rgba(212,64,25,1) 100%); }
+.Instagram { background: linear-gradient(135deg, rgba(50,65,210,1) 15%, rgba(150,47,191,1) 35%, rgba(214,41,118,1) 55%, rgba(250,126,30,1) 75%, rgba(254,218,117,1) 100%); }
+
+.hollowButton.light { border-color: white; }
+.hollowButton.light:hover { background-color: rgba(255, 255, 255, 0.15); }

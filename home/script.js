@@ -1,83 +1,102 @@
-window.addEventListener('load', (event) =>
+let rosterDetails = {};
+
+window.addEventListener("load", () =>
 {
-    showSlides(slideIndex);
-    //generateRosterDots();
-    autoScrollSlides();
+    indexRoster();
+    document.querySelector("#rosterBack").onclick = () => { rosterPageChange(false); };
+    document.querySelector("#rosterForward").onclick = () => { rosterPageChange(true); };
+    rosterAutoPages(4000, 1000);
 });
 
-//#region Roster
-var slides = document.getElementsByClassName("mySlides");
-var dots = document.getElementsByClassName("dot");
-
-var slideIndex = 1;
-
-/*function generateRosterDots()
+function indexRoster()
 {
-    for (var i = 0; i < slides.length; i++)
+    let rosterPages = document.querySelector("#rosterContainer").querySelector("#rosterPages");
+    rosterDetails = { element: rosterPages, pages: team.members.length, pageElements: [], slide: 1 };
+    for (let i = 0; i < team.members.length; i++)
     {
-        console.log(i);
-        var span = document.createElement("span");
-        span.className = "dot";
-        span.onclick = currentSlide(3);
-        document.getElementById("rosterDots").appendChild(span);
-    }
-}*/
+        let td = document.createElement("td");
+        let a = document.createElement("a");
+        let img = document.createElement("img");
+        let h4 = document.createElement("h4");
+        let p = document.createElement("p");
 
-// Next/previous controls
-function plusSlides(n)
-{
-    var i;
-    var animation = n == "-1" ? " ltr" : " rtl";
-    var aniReplace = n == "-1" ? " rtl" : " ltr";
-    if (slideIndex + n > slides.length) { i = 0; }
-    else if (slideIndex + n < 1) { i = slides.length - 1;}
-    else { i = slideIndex - 1 + n; }
-    slides[i].className = slides[i].className.replace(aniReplace, animation);
+        if (i == 0) { td.classList.add("visible"); }
+        a.href = `/members/${team.members[i].name.toLowerCase().replace(" ", "")}/`;
+        a.classList.add("center");
+        a.setAttribute("animation", "placeholder");
+        img.src = team.members[i].icon;
+        img.classList.add("imgMedium");
+        img.classList.add("circle");
+        h4.innerText = team.members[i].name;
+        p.innerText = team.members[i].position;
 
-    showSlides(slideIndex += n);
-}
-
-// Thumbnail image controls
-function currentSlide(n)
-{
-    if (n != slideIndex)
-    {
-        var animation = n > slideIndex ? " ltr" : " rtl";
-        var aniReplace = n > slideIndex ? " rtl" : " ltr";  
-        slides[n - 1].className = slides[n - 1].className.replace(animation, aniReplace);
-        showSlides(slideIndex = n);
+        a.appendChild(img);
+        a.appendChild(h4);
+        a.appendChild(p);
+        td.appendChild(a);
+        rosterPages.insertBefore(td, rosterPages.children[rosterPages.children.length - 1]);
+        rosterDetails.pageElements.push(a);
     }
 }
 
-function showSlides(n)
+function rosterPageChange(progress)
 {
-    var i;
-    if (n > slides.length) { slideIndex = 1; }
-    if (n < 1) { slideIndex = slides.length; }
-    for (i = 0; i < slides.length; i++)
-    {
-       slides[i].style.display = "none";
-    }
-    for (i = 0; i < dots.length; i++)
-    {
-        dots[i].className = dots[i].className.replace(" active", "");
-    }
-    slides[slideIndex-1].style.display = "block";
-    dots[slideIndex-1].className += " active";
-}
-
-var mouseOverControl = false;
-
-function disableAutoScroll() { mouseOverControl = true; }
-
-function enableAutoScroll() { mouseOverControl = false; }
-
-function autoScrollSlides()
-{
+    let previousSlideIndex = rosterDetails.slide;
+    if (progress) { rosterDetails.slide = rosterDetails.slide == rosterDetails.pages ? 1 : rosterDetails.slide + 1; }
+    else { rosterDetails.slide = rosterDetails.slide == 1 ? rosterDetails.pages : rosterDetails.slide - 1; }
+    let previousSlide = rosterDetails.element.children[previousSlideIndex];
+    let previousSlideA = previousSlide.querySelector("a");
+    previousSlideA.classList.remove(previousSlideA.getAttribute("animation"));
+    previousSlideA.setAttribute("animation", progress ? "rightToLeftOut" : "leftToRightOut");
+    previousSlideA.classList.add(previousSlideA.getAttribute("animation"));
     setTimeout(() =>
     {
-        if (mouseOverControl == false) { plusSlides(1); }
-        autoScrollSlides();
-    }, 4000);
+        previousSlide.classList.remove("visible");
+
+        let currentSlide = rosterDetails.element.children[rosterDetails.slide];
+        currentSlide.classList.add("visible");
+        let currentSlideA = currentSlide.querySelector("a");
+        currentSlideA.classList.remove(currentSlideA.getAttribute("animation"));
+        currentSlideA.setAttribute("animation", progress ? "rightToLeftIn" : "leftToRightIn");
+        currentSlideA.classList.add(currentSlideA.getAttribute("animation"));
+    }, 495);
 }
-//#endregion
+
+function rosterSlideSet(slide) //Didn't account for page select buttons in the orignal function so I made this quick dirty method, iterates through all slides till the user is at the desired page.
+{
+    if (slide > 0 && slide < rosterDetails.pages + 1)
+    {
+        let forward = slide > rosterDetails.slide ? true : false;
+        while(slide != rosterDetails.slide) { rosterPageChange(forward); }
+    }
+}
+
+function rosterAutoPages(slideTime, checkTime)
+{
+    let rosterContainer = document.querySelector("#rosterContainer");
+    rosterContainer.addEventListener("mouseover", pauseTimer);
+    rosterContainer.addEventListener("mouseleave", resumeTimer);
+    let rosterBack = document.querySelector("#rosterBack");
+    let rosterForward = document.querySelector("#rosterForward");
+    rosterBack.addEventListener("click", resetTimer);
+    rosterForward.addEventListener("click", resetTimer);
+
+    let timeRemaining = slideTime;
+    let timer = setInterval(timerFunction, checkTime);
+
+    function timerFunction()
+    {
+        timeRemaining -= checkTime;
+        if (timeRemaining <= 0)
+        {
+            timeRemaining = slideTime;
+            rosterPageChange(true);
+        }
+    }
+
+    function resetTimer() { timeRemaining = slideTime; }
+
+    function pauseTimer() { clearInterval(timer); }
+
+    function resumeTimer() { setInterval(timerFunction, checkTime); }
+}
